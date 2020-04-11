@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ExamTwoCodeQuestions.Data;
 
 namespace ExamTwoQuestions.PointOfSale
 {
@@ -22,5 +14,43 @@ namespace ExamTwoQuestions.PointOfSale
         {
             InitializeComponent();
         }
+
+
+        private void FillingRadioButton_Click(object sender, RoutedEventArgs e)
+        {
+            FruitFilling fill;
+
+            switch (((RadioButton)sender).Name)
+            {
+                case "FillingRadioButtonPeach":
+                    fill = FruitFilling.Peach;
+                    break;
+
+                case "FillingRadioButtonCherry":
+                    fill = FruitFilling.Cherry;
+                    break;
+
+                case "FillingRadioButtonBlueberry":
+                    fill = FruitFilling.Blueberry;
+                    break;
+
+                default:
+                    throw new NotImplementedException("Not an acceptable selection.");
+            }
+
+            if (DataContext is Cobbler)
+            {
+                Cobbler cob = (Cobbler)DataContext;
+                cob.Fruit = fill;
+            }
+            else
+            {
+                throw new NotImplementedException("Only cobbler is allowed for context.");
+            }
+        }
+
+
     }
+
+
 }

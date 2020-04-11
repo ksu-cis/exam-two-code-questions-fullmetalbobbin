@@ -7,6 +7,63 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock>Customize Cobbler</TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Label VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Grid.ColumnSpan="2">Cobbler Customization</Label>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+
+            <RadioButton x:Name="FillingRadioButtonPeach" 
+                     Grid.Row="1"
+                     Content="PEACH"
+                     GroupName="FruitFilling"
+                     FontSize="16"
+                     Click="FillingRadioButton_Click"
+                     IsChecked="True"/>
+
+            <RadioButton x:Name="FillingRadioButtonCherry" 
+                     Grid.Row="2"
+                     Content="CHERRY"
+                     GroupName="FruitFilling"
+                     FontSize="16"
+                     Click="FillingRadioButton_Click"/>
+
+            <RadioButton x:Name="FillingRadioButtonBlueberry" 
+                     Grid.Row="3"
+                     Content="BLUEBERRY"
+                     GroupName="FruitFilling"
+                     FontSize="16"
+                     Click="FillingRadioButton_Click"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <CheckBox x:Name="WithIceCreamCheckbox"
+                  Grid.Row="1"
+                  Content="A LA MODE"
+                  FontSize="16"
+                  IsChecked="{Binding Path=WithIceCream}"/>
+
+        </Grid>
+
+
+
     </Grid>
 </UserControl>
